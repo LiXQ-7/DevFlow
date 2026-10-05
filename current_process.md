@@ -31,7 +31,7 @@
 - `devflow/benchmarks/paid.py`、`scripts/run_live_evaluation.py`：并发实测、缓存命中计费、费用预留、完整 usage 捕获、Windows 账本原子替换重试；未知请求失败按预留上限计费。
 - `docs/evidence/deepseek-live-20260915/`：实测 CSV、指标、固定协议、补测溯源及报告；`docs/resume-ready.md`：对应真实结果的简历及面试口径。
 - 当前仓库未包含此前记录的 `docs/DevFlow-面试知识库说明.md`；面试准备以 `docs/resume-ready.md`、评测报告和源码为准，后续如需该文档应重新生成并校验后提交。
-- 已创建并推送公开 GitHub 仓库 `https://github.com/LiXQ-7/DevFlow`；初始提交为 `b9f8554`。`.gitignore` 额外排除 `.idea/` 与 `*.iml`。
+- 已创建并推送公开 GitHub 仓库 `https://github.com/LiXQ-7/DevFlow`；初始提交为 `b9f8554`。`.gitignore` 额外排除 `.idea/`、`*.iml` 与 Word 临时锁文件。
 
 ## 在进行 / 阻塞
 
