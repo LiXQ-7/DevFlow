@@ -1,6 +1,6 @@
 # DevFlow 当前进展
 
-最后同步：2026-09-23。阶段：V1 本地验收、DeepSeek 真实模型评测、简历交付及面试知识库文档完成。
+最后同步：2026-10-05。阶段：V1 已完成本地验收、DeepSeek 真实模型评测、简历交付，并发布至私有 GitHub 仓库。
 
 ## 项目目的
 
@@ -15,6 +15,7 @@
 - Session 位于项目 .devflow，采用 append/fsync JSONL 树；会话分支不回滚文件；结果未知不自动重放。
 - 摘要采用确定性抽取。模拟目标百分比不用于实测报告；离线模式与真实模型模式明确区分。
 - 简历用“基于开源 Agent Runtime 二次开发”，源码及归属文档保留实际上游信息。DeepSeek Flash 官方 API 使用非思考模式、temperature=0；凭据仅在被 Git 忽略的本地配置中。
+- GitHub 远端为私有仓库 `LiXQ-7/DevFlow`，默认分支 `main`；真实 `.env`、`.devflow`、原始 benchmark 工作区、虚拟环境和构建产物不得提交。
 
 ## 已完成
 
@@ -29,7 +30,8 @@
 - 可安装 wheel：`dist/devflow_agent-0.1.0-py3-none-any.whl`，包含四 Skills 和三套数据；已配置 Windows/Linux CI，尚未远端执行。
 - `devflow/benchmarks/paid.py`、`scripts/run_live_evaluation.py`：并发实测、缓存命中计费、费用预留、完整 usage 捕获、Windows 账本原子替换重试；未知请求失败按预留上限计费。
 - `docs/evidence/deepseek-live-20260915/`：实测 CSV、指标、固定协议、补测溯源及报告；`docs/resume-ready.md`：对应真实结果的简历及面试口径。
-- `docs/DevFlow-面试知识库说明.md`：结合当前源码、测试、实测证据和研发版简历形成的面试知识库，覆盖架构、执行链路、六工具、Context、Session 恢复、指标边界、高频追问、STAR 故事及冲刺复习路线；未收录简历中的联系方式等个人隐私。
+- 当前仓库未包含此前记录的 `docs/DevFlow-面试知识库说明.md`；面试准备以 `docs/resume-ready.md`、评测报告和源码为准，后续如需该文档应重新生成并校验后提交。
+- 已创建并推送私有 GitHub 仓库 `https://github.com/LiXQ-7/DevFlow`；初始提交为 `b9f8554`。`.gitignore` 额外排除 `.idea/` 与 `*.iml`。
 
 ## 在进行 / 阻塞
 
@@ -42,7 +44,8 @@
 - `.venv/Scripts/python scripts/hello_agents_probe.py`：通过；首次探针暴露上游 Read 内容丢失问题，适配修正记录在 ADR。
 - `.venv/Scripts/python -m pytest -q`：全套测试通过（45 passed, 1 skipped）；跳过项为当前 Windows 不授予符号链接创建权限。
 - 2026-09-23 重新执行 `.venv/Scripts/python -m pytest -q`：全套测试仍为通过状态（输出 45 个通过标记、1 个平台跳过标记）；执行 `.venv/Scripts/ruff.exe check devflow tests scripts` 和 `ruff format --check`：通过，46 个 Python 文件格式一致。
-- 2026-09-23 对 `docs/DevFlow-面试知识库说明.md` 完成章节、占位符及隐私字段检查：文档约 50 KB，未发现模板占位符、FIXME/TBD 或简历电话/邮箱。
+- 2026-10-05 仓库核对确认 `docs/DevFlow-面试知识库说明.md` 当前缺失，已移除将其视为现有交付物的过期记录。
+- 2026-10-05 发布前对实际暂存内容进行凭据特征扫描，未发现 API Key 或 Bearer Token；确认本地 `.env` 存在但未被 Git 跟踪，GitHub 仓库可见性为 PRIVATE，`main` 已成功推送。
 - 本地 HTTP 集成：真实 SDK → HelloAgents → Write → 工具结果回传 → 最终回答及 API usage，测试通过；外部 DeepSeek 结果单独记录如下。
 - `.venv/Scripts/ruff check devflow tests scripts`、`ruff format --check`：通过，46 个 Python 文件格式一致。
 - `python -m uv lock --check`：通过；`.venv/Scripts/python -m build --wheel`：构建成功。
@@ -58,7 +61,7 @@
 
 ## 后续步骤
 
-1. 面试准备优先使用 `docs/DevFlow-面试知识库说明.md`，简历精简表述使用 `docs/resume-ready.md`；回答量化问题时继续对照实测报告的分母、失败样例和 A/B 口径。本次无需继续消耗 API。
+1. 面试准备优先使用 `docs/resume-ready.md` 和 `docs/evidence/deepseek-live-20260915/report.md`；回答量化问题时继续对照分母、失败样例和 A/B 口径。本次无需继续消耗 API。
 2. 后续改进方向：减少重复 Read、改善最近轮次超预算处理；另立实验比较同等执行量下收益。
 3. 提供真实 12307 目录后按 docs/demo.md 演示；在 Linux CI 环境补齐平台验证。这些为未来工作，不影响当前交付。
 
@@ -69,9 +72,9 @@
 - Context 任务是工程教学集，最终回答五点字面规则不等同于全面语义正确率。
 - 45.0% 包含 14 轮上下文预算中断，不能声称同等执行量下纯压缩收益或账单同比节省。基线扩大 Read 且关闭截断，收益是组合策略效果，不能归因于单个压缩组件。
 - 完整约束加最近轮次超预算会显式失败；不会为降低 Token 悄悄删除要求。
-- 当前 Git 仓库已初始化，未创建提交或远程仓库；原始需求文档未改动。
+- GitHub 当前为私有仓库；若未来改为公开，仍需重新执行凭据与个人信息扫描，尤其检查历史提交和二进制需求文档。
 
 ## 接手入口
 
-先读 README.md → docs/ADR-001-runtime-integration.md → docs/acceptance.md → docs/evidence/deepseek-live-20260915/report.md → docs/resume-ready.md → docs/DevFlow-面试知识库说明.md。
+先读 README.md → docs/ADR-001-runtime-integration.md → docs/acceptance.md → docs/evidence/deepseek-live-20260915/report.md → docs/resume-ready.md。
 功能协调入口 controller.py；上游变更先重新运行探针。修改后跑相关 pytest，再同步本文件；不得把未运行的 live 指标填成已测。
