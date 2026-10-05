@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-09-14T10:55:07.216759+00:00",
+  "runtime_commit": "93e77ea60c13436636c9b39b6761ff8dfe940ba2",
+  "mode": "offline_replay",
+  "groups": 12,
+  "rounds": 20,
+  "arms": 2,
+  "summary_strategy": "deterministic_extractive",
+  "state_rubric": "literal five point rubric, not semantic judge",
+  "note": "Offline state is context presence; live state is final answer. Offline task completion is unmeasured.",
+  "model": "gpt-4o-mini",
+  "temperature": 0,
+  "context_window": 32000,
+  "reserve_tokens": 4096,
+  "dataset_sha256": "06c7283d9acd84e2f0960b54e5ee9381ab700b30eb67191af2622a132b41b9f4"
+}

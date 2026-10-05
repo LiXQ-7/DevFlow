@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "signatures": {
+    "ReActAgent": "(name: str, llm: hello_agents.core.llm.HelloAgentsLLM, tool_registry: Optional[hello_agents.tools.registry.ToolRegistry] = None, system_prompt: Optional[str] = None, config: Optional[hello_agents.core.config.Config] = None, max_steps: int = 5)",
+    "HelloAgentsLLM": "(model: Optional[str] = None, api_key: Optional[str] = None, base_url: Optional[str] = None, temperature: float = 0.7, max_tokens: Optional[int] = None, timeout: Optional[int] = None, **kwargs)",
+    "ToolRegistry.register_tool": "(self, tool: hello_agents.tools.base.Tool, auto_expand: bool = True)",
+    "Tool": "(name: str, description: str, expandable: bool = False)",
+    "ToolResponse": "(status: hello_agents.tools.response.ToolStatus, text: str, data: Dict[str, Any] = <factory>, error_info: Optional[Dict[str, str]] = None, stats: Optional[Dict[str, Any]] = None, context: Optional[Dict[str, Any]] = None) -> None",
+    "HistoryManager": "(min_retain_rounds: int = 10, compression_threshold: float = 0.8)",
+    "TokenCounter": "(model: str = 'gpt-4')",
+    "ObservationTruncator": "(max_lines: int = 2000, max_bytes: int = 51200, truncate_direction: str = 'head', output_dir: str = 'tool-output')",
+    "SessionStore": "(session_dir: str = 'memory/sessions')",
+    "SessionStore.save": "(self, agent_config: Dict[str, Any], history: List[Any], tool_schema_hash: str, read_cache: Dict[str, Dict], metadata: Dict[str, Any], session_name: Optional[str] = None) -> str",
+    "SessionStore.load": "(self, filepath: str) -> Dict[str, Any]"
+  },
+  "function_calling_probe": "PASS (scripted LLM, real upstream ReActAgent and ReadTool)"
+}

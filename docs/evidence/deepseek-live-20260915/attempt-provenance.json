@@ -1,0 +1,11 @@
+{
+  "prior_run": "benchmark-results\\deepseek-live-20260915-r1",
+  "retained_arms": [
+    "context-01/A",
+    "context-01/B",
+    "context-02/A",
+    "context-02/B"
+  ],
+  "tool_results": "All 240 original API outcomes retained unchanged",
+  "rule": "Retain all paired arms without cost-ledger BudgetExceeded or PermissionError. Context policy and max_steps outcomes are NOT excluded. Retry interrupted pairs in fresh workspaces with same model, prompts and context settings; use cache-aware peak-price accounting."
+}

@@ -1,0 +1,34 @@
+{
+  "tool_cases": 240,
+  "tool_correct": 226,
+  "normal_cases": 200,
+  "normal_schema_pass": 200,
+  "normal_selection_correct": 186,
+  "tool_errors": 0,
+  "context_arms_completed": 24,
+  "context_rows": 480,
+  "context_input_tokens": {
+    "A": 9314858,
+    "B": 5120803
+  },
+  "context_all_usage_present": true,
+  "context_turn_statuses": {
+    "ContextBudgetExceeded": 14,
+    "completed": 410,
+    "max_steps": 56
+  },
+  "A": {
+    "tasks": 12,
+    "completed": 12,
+    "retained": 60,
+    "state_points": 60,
+    "repeated_reads": 112
+  },
+  "B": {
+    "tasks": 12,
+    "completed": 12,
+    "retained": 57,
+    "state_points": 60,
+    "repeated_reads": 121
+  }
+}

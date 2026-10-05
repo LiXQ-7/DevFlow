@@ -1,0 +1,15 @@
+case_id,expected_tool,stratum,selected_tool,selection_correct,schema_valid,input_tokens,output_tokens,error,response_model,call_count,raw_calls,duration_seconds
+Edit-05,Edit,normal_schema_input,Read,0,1,1322,32,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""sample.txt\""}""}]",1.031
+Edit-06,Edit,normal_schema_input,Write,0,1,1341,65,,deepseek-flash,1,"[{""name"": ""Write"", ""arguments"": ""{\""path\"": \""sample.txt\"", \""content\"": \""whole\"", \""overwrite\"": true}""}]",1.078
+Edit-08,Edit,normal_schema_input,Read,0,1,1325,33,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""../outside.txt\""}""}]",0.922
+Edit-13,Edit,normal_schema_input,Grep,0,1,1329,52,,deepseek-flash,1,"[{""name"": ""Grep"", ""arguments"": ""{\""query\"": \""alpha-1\"", \""path\"": \""中文文件.txt\""}""}]",1.344
+Edit-15,Edit,normal_schema_input,Grep,0,1,1324,52,,deepseek-flash,1,"[{""name"": ""Grep"", ""arguments"": ""{\""query\"": \""beta-1\"", \""path\"": \""中文文件.txt\""}""}]",0.953
+Edit-16,Edit,normal_schema_input,Write,0,1,1343,66,,deepseek-flash,1,"[{""name"": ""Write"", ""arguments"": ""{\""path\"": \""中文文件.txt\"", \""content\"": \""whole\"", \""overwrite\"": true}""}]",0.625
+Edit-18,Edit,normal_schema_input,Read,0,1,1325,33,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""../outside.txt\""}""}]",0.984
+Edit-23,Edit,normal_schema_input,Read,0,1,1329,34,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""src/module.txt\""}""}]",0.531
+Edit-25,Edit,normal_schema_input,Read,0,1,1324,34,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""src/module.txt\""}""}]",0.828
+Edit-26,Edit,normal_schema_input,Write,0,1,1343,67,,deepseek-flash,1,"[{""name"": ""Write"", ""arguments"": ""{\""path\"": \""src/module.txt\"", \""content\"": \""whole\"", \""overwrite\"": true}""}]",0.954
+Edit-28,Edit,normal_schema_input,Read,0,1,1325,33,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""../outside.txt\""}""}]",0.906
+Edit-35,Edit,normal_schema_input,Grep,0,1,1325,54,,deepseek-flash,1,"[{""name"": ""Grep"", ""arguments"": ""{\""query\"": \""beta-3\"", \""path\"": \""folder with space/a.txt\""}""}]",0.969
+Edit-36,Edit,normal_schema_input,Write,0,1,1344,68,,deepseek-flash,1,"[{""name"": ""Write"", ""arguments"": ""{\""path\"": \""folder with space/a.txt\"", \""content\"": \""whole\"", \""overwrite\"": true}""}]",1.062
+Edit-38,Edit,normal_schema_input,Read,0,1,1325,33,,deepseek-flash,1,"[{""name"": ""Read"", ""arguments"": ""{\""path\"": \""../outside.txt\""}""}]",0.922

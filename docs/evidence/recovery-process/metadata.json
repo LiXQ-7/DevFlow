@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-09-14T10:55:41.245267+00:00",
+  "runtime_commit": "93e77ea60c13436636c9b39b6761ff8dfe940ba2",
+  "mode": "real_worker_exit_scripted_model",
+  "total": 30,
+  "successful_resume": 30,
+  "uncertain_side_effect": 10,
+  "dataset_sha256": "7632270326eb395f49a37387f0c85fc62f6bdfd6aeea3ba024cdd3220823cd63"
+}

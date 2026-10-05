@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-09-14T10:50:30.746490+00:00",
+  "runtime_commit": "93e77ea60c13436636c9b39b6761ff8dfe940ba2",
+  "mode": "offline_fixture",
+  "cases": 240,
+  "note": "Includes intentional invalid-schema cases; report positive and negative strata separately.",
+  "model": "gpt-4o-mini",
+  "temperature": 0,
+  "context_window": 32000,
+  "reserve_tokens": 4096,
+  "dataset_sha256": "b2b02fef375906caed565bf637a9eca9bb7322f0cb183720b7e5c0d681ce33fa"
+}

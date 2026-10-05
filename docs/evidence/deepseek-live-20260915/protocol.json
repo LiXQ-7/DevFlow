@@ -1,0 +1,20 @@
+{
+  "started": "2026-09-15T07:43:24.798145+00:00",
+  "model": "deepseek-flash",
+  "thinking": "disabled",
+  "temperature": 0,
+  "budget_cap_cny": 12.0,
+  "prices_peak_cny_per_million": {
+    "input": 2,
+    "output": 8
+  },
+  "context_window": 16000,
+  "max_steps": 5,
+  "output_max_bytes": 4096,
+  "datasets": {
+    "tool_calling_cases.jsonl": "b2b02fef375906caed565bf637a9eca9bb7322f0cb183720b7e5c0d681ce33fa",
+    "context_tasks.jsonl": "06c7283d9acd84e2f0960b54e5ee9381ab700b30eb67191af2622a132b41b9f4"
+  },
+  "tool_protocol": "240 fixed single-tool requests, 200 normal schema inputs and 40 intentional invalid; no model-generated commands executed",
+  "context_protocol": "12 fixed tasks x 20 rounds x 2 arms; independent fixtures; final-answer literal rubric and external functional assertions"
+}
