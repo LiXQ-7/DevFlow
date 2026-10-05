@@ -1,6 +1,6 @@
 # DevFlow 当前进展
 
-最后同步：2026-10-05。阶段：V1 已完成本地验收、DeepSeek 真实模型评测、简历交付，并发布至私有 GitHub 仓库。
+最后同步：2026-10-05。阶段：V1 已完成本地验收、DeepSeek 真实模型评测、简历交付，并发布至公开 GitHub 仓库。
 
 ## 项目目的
 
@@ -15,7 +15,7 @@
 - Session 位于项目 .devflow，采用 append/fsync JSONL 树；会话分支不回滚文件；结果未知不自动重放。
 - 摘要采用确定性抽取。模拟目标百分比不用于实测报告；离线模式与真实模型模式明确区分。
 - 简历用“基于开源 Agent Runtime 二次开发”，源码及归属文档保留实际上游信息。DeepSeek Flash 官方 API 使用非思考模式、temperature=0；凭据仅在被 Git 忽略的本地配置中。
-- GitHub 远端为私有仓库 `LiXQ-7/DevFlow`，默认分支 `main`；真实 `.env`、`.devflow`、原始 benchmark 工作区、虚拟环境和构建产物不得提交。
+- GitHub 远端为公开仓库 `LiXQ-7/DevFlow`，默认分支 `main`；真实 `.env`、`.devflow`、原始 benchmark 工作区、虚拟环境和构建产物不得提交。
 
 ## 已完成
 
@@ -31,7 +31,7 @@
 - `devflow/benchmarks/paid.py`、`scripts/run_live_evaluation.py`：并发实测、缓存命中计费、费用预留、完整 usage 捕获、Windows 账本原子替换重试；未知请求失败按预留上限计费。
 - `docs/evidence/deepseek-live-20260915/`：实测 CSV、指标、固定协议、补测溯源及报告；`docs/resume-ready.md`：对应真实结果的简历及面试口径。
 - 当前仓库未包含此前记录的 `docs/DevFlow-面试知识库说明.md`；面试准备以 `docs/resume-ready.md`、评测报告和源码为准，后续如需该文档应重新生成并校验后提交。
-- 已创建并推送私有 GitHub 仓库 `https://github.com/LiXQ-7/DevFlow`；初始提交为 `b9f8554`。`.gitignore` 额外排除 `.idea/` 与 `*.iml`。
+- 已创建并推送公开 GitHub 仓库 `https://github.com/LiXQ-7/DevFlow`；初始提交为 `b9f8554`。`.gitignore` 额外排除 `.idea/` 与 `*.iml`。
 
 ## 在进行 / 阻塞
 
@@ -45,7 +45,7 @@
 - `.venv/Scripts/python -m pytest -q`：全套测试通过（45 passed, 1 skipped）；跳过项为当前 Windows 不授予符号链接创建权限。
 - 2026-09-23 重新执行 `.venv/Scripts/python -m pytest -q`：全套测试仍为通过状态（输出 45 个通过标记、1 个平台跳过标记）；执行 `.venv/Scripts/ruff.exe check devflow tests scripts` 和 `ruff format --check`：通过，46 个 Python 文件格式一致。
 - 2026-10-05 仓库核对确认 `docs/DevFlow-面试知识库说明.md` 当前缺失，已移除将其视为现有交付物的过期记录。
-- 2026-10-05 发布前对实际暂存内容进行凭据特征扫描，未发现 API Key 或 Bearer Token；确认本地 `.env` 存在但未被 Git 跟踪，GitHub 仓库可见性为 PRIVATE，`main` 已成功推送。
+- 2026-10-05 改为公开仓库前扫描全部 Git 历史，未发现真实 `.env`、API Key 或 Bearer Token；需求文档中未检测到邮箱、手机号或凭据，GitHub 可见性已核验为 PUBLIC。
 - 本地 HTTP 集成：真实 SDK → HelloAgents → Write → 工具结果回传 → 最终回答及 API usage，测试通过；外部 DeepSeek 结果单独记录如下。
 - `.venv/Scripts/ruff check devflow tests scripts`、`ruff format --check`：通过，46 个 Python 文件格式一致。
 - `python -m uv lock --check`：通过；`.venv/Scripts/python -m build --wheel`：构建成功。
@@ -72,7 +72,7 @@
 - Context 任务是工程教学集，最终回答五点字面规则不等同于全面语义正确率。
 - 45.0% 包含 14 轮上下文预算中断，不能声称同等执行量下纯压缩收益或账单同比节省。基线扩大 Read 且关闭截断，收益是组合策略效果，不能归因于单个压缩组件。
 - 完整约束加最近轮次超预算会显式失败；不会为降低 Token 悄悄删除要求。
-- GitHub 当前为私有仓库；若未来改为公开，仍需重新执行凭据与个人信息扫描，尤其检查历史提交和二进制需求文档。
+- GitHub 当前为公开仓库；后续每次提交仍需避免加入凭据、个人信息和本地运行产物，密钥如曾误提交必须立即轮换并清理历史。
 
 ## 接手入口
 
